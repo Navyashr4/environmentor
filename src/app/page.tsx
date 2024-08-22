@@ -21,7 +21,7 @@ function getTitle({ q, type, location, remote }: JobFilterValues) {
       ? `${type} developer jobs`
       : remote
         ? "Remote developer jobs"
-        : "All developer jobs";
+        : "All Environmental Experts";
 
   const titleSuffix = location ? ` in ${location}` : "";
 
