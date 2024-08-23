@@ -55,7 +55,7 @@ export default async function JobFilterSidebar({
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="type">Type</Label>
+            <Label htmlFor="type">Expertise Type</Label>
             <Select
               id="type"
               name="type"
@@ -92,9 +92,9 @@ export default async function JobFilterSidebar({
               className="scale-125 accent-black"
               defaultChecked={defaultValues.remote}
             />
-            <Label htmlFor="remote">Remote jobs</Label>
+            <Label htmlFor="remote">On-site Consultation</Label>
           </div>
-          <FormSubmitButton className="w-full">Filter jobs</FormSubmitButton>
+          <FormSubmitButton className="w-full">Filter experts</FormSubmitButton>
         </div>
       </form>
     </aside>

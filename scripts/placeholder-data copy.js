@@ -1,14 +1,14 @@
 const placeholderJobs = [
   {
-    title: "Vandana Shiva",
-    type: "Advanced",
-    companyName: "Sattva",
+    title: "Full-Stack Developer at Stripe",
+    type: "Full-time",
+    companyName: "Stripe",
     locationType: "Remote",
-    location: "Mumbai, India",
+    location: "San Francisco, California, United States",
     applicationEmail: "apply@stripe.com",
     applicationUrl: "https://stripe.com/apply",
-    slug: "vandana-shiva-urban-planner",
-    salary: 60,
+    slug: "full-stack-developer-at-stripe-1",
+    salary: 150000,
     approved: true,
     description: `
 **About Stripe**
