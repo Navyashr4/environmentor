@@ -11,3 +11,9 @@ export const jobTypes = [
 ];
 
 export const locationTypes = ["Remote", "On-site", "Hybrid"];
+
+export const levelTypes = [
+  "Junior Expert (1-3 years)", 
+  "Mid-Level Expert (4-7 years)",
+  "Senior Expert (8+ years)",
+  "Thought Leader (10+ years)"]

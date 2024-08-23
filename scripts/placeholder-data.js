@@ -1,7 +1,7 @@
 const placeholderJobs = [
   {
     title: "Vandana Shiva",
-    type: "Advanced",
+    type: "Advanced Expert",
     companyName: "Urban Planner",
     locationType: "Remote",
     location: "Mumbai, India",

@@ -34,12 +34,12 @@ export default function JobListItem({
       <div className="flex-grow space-y-3">
         <div>
           <h2 className="text-xl font-medium">{title}</h2>
-          <p className="text-muted-foreground">{companyName}</p>
+          <p className="text-muted-foreground">{type}</p>
         </div>
         <div className="text-muted-foreground">
           <p className="flex items-center gap-1.5 sm:hidden">
             <Briefcase size={16} className="shrink-0" />
-            {type}
+            {companyName}
           </p>
           {applicationEmail && <p className="flex items-center gap-1.5">
             <Mail size={16} className="shrink-0" />
@@ -60,7 +60,7 @@ export default function JobListItem({
         </div>
       </div>
       <div className="hidden shrink-0 flex-col items-end justify-between sm:flex">
-        <Badge>{type}</Badge>
+        <Badge>{companyName}</Badge>
         <span className="flex items-center gap-1.5 text-muted-foreground">
         <Banknote size={16} className="shrink-0" />
         {formatMoney(salary)}/hour

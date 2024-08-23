@@ -15,13 +15,15 @@ import H1 from "@/components/ui/h1";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Select from "@/components/ui/select";
-import { jobTypes, locationTypes } from "@/lib/job-types";
+import { jobTypes, locationTypes, levelTypes} from "@/lib/job-types";
 import { CreateJobValues, createJobSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
 import { draftToMarkdown } from "markdown-draft-js";
 import { useForm } from "react-hook-form";
 import { createJobPosting } from "./actions";
+
+
 
 export default function NewJobForm() {
   const form = useForm<CreateJobValues>({
@@ -57,16 +59,16 @@ export default function NewJobForm() {
   return (
     <main className="m-auto my-10 max-w-3xl space-y-10">
       <div className="space-y-5 text-center">
-        <H1>Find your perfect developer</H1>
+        <H1>Add an expert</H1>
         <p className="text-muted-foreground">
-          Get your job posting seen by thousands of job seekers.
+          Share valuable expertise with thousands looking to achieve environmental resilience.
         </p>
       </div>
       <div className="space-y-6 rounded-lg border p-4">
         <div>
-          <h2 className="font-semibold">Job details</h2>
+          <h2 className="font-semibold">Expert details</h2>
           <p className="text-muted-foreground">
-            Provide a job description and details
+            Provide details about the expert
           </p>
         </div>
         <Form {...form}>
@@ -80,9 +82,9 @@ export default function NewJobForm() {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Job title</FormLabel>
+                  <FormLabel>Full name</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g. Frontend Developer" {...field} />
+                    <Input placeholder="e.g. Rajendra Singh" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -93,7 +95,7 @@ export default function NewJobForm() {
               name="type"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Job type</FormLabel>
+                  <FormLabel>Expertise type</FormLabel>
                   <FormControl>
                     <Select {...field} defaultValue="">
                       <option value="" hidden>
@@ -115,20 +117,42 @@ export default function NewJobForm() {
               name="companyName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company</FormLabel>
+                  <FormLabel>Level of Experience</FormLabel>
+                  <FormControl>
+                    <Select {...field} defaultValue="">
+                      <option value="" hidden>
+                        Select an option
+                      </option>
+                      {levelTypes.map((jobType) => (
+                        <option key={jobType} value={jobType}>
+                          {jobType}
+                        </option>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/* <FormField
+              control={control}
+              name="companyName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Level of Experience</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={control}
               name="companyLogo"
               render={({ field: { value, ...fieldValues } }) => (
                 <FormItem>
-                  <FormLabel>Company logo</FormLabel>
+                  <FormLabel>Profile Picture</FormLabel>
                   <FormControl>
                     <Input
                       {...fieldValues}
@@ -149,7 +173,7 @@ export default function NewJobForm() {
               name="locationType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Location</FormLabel>
+                  <FormLabel>Availability</FormLabel>
                   <FormControl>
                     <Select
                       {...field}
@@ -205,7 +229,7 @@ export default function NewJobForm() {
               )}
             />
             <div className="space-y-2">
-              <Label htmlFor="applicationEmail">How to apply</Label>
+              <Label htmlFor="applicationEmail">How to connect</Label>
               <div className="flex justify-between">
                 <FormField
                   control={control}
@@ -234,8 +258,8 @@ export default function NewJobForm() {
                     <FormItem className="grow">
                       <FormControl>
                         <Input
-                          placeholder="Website"
-                          type="url"
+                          placeholder="Phone number"
+                          type="tel"
                           {...field}
                           onChange={(e) => {
                             field.onChange(e);
@@ -274,7 +298,7 @@ export default function NewJobForm() {
               name="salary"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Salary</FormLabel>
+                  <FormLabel>Consultation rate (INR/per hour)</FormLabel>
                   <FormControl>
                     <Input {...field} type="number" />
                   </FormControl>

@@ -17,7 +17,12 @@ const companyLogoSchema = z
 const applicationSchema = z
   .object({
     applicationEmail: z.string().max(100).email().optional().or(z.literal("")),
-    applicationUrl: z.string().max(100).url().optional().or(z.literal("")),
+    applicationUrl: z.string()
+    .min(10, { message: "Phone number must be at least 10 digits long" }) // Ensure minimum length
+    .max(15, { message: "Phone number must be at most 15 digits long" })  // Ensure maximum length
+    .regex(/^\+?[1-9]\d{1,14}$/, { message: "Invalid phone number format" }) // Regular expression for phone numbers
+    .optional()
+    .or(z.literal("")),
   })
   .refine((data) => data.applicationEmail || data.applicationUrl, {
     message: "Email or url is required",
