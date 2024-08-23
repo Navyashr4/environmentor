@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">Environmentor</h3>
             <p className="text-sm text-muted-foreground">
-              Connecting talents with opportunities
+              Connecting experts with opportunities
             </p>
           </div>
           <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
