@@ -92,7 +92,7 @@ export default async function JobFilterSidebar({
               className="scale-125 accent-black"
               defaultChecked={defaultValues.remote}
             />
-            <Label htmlFor="remote">On-site Consultation</Label>
+            <Label htmlFor="remote">Remote Consultation</Label>
           </div>
           <FormSubmitButton className="w-full">Filter experts</FormSubmitButton>
         </div>

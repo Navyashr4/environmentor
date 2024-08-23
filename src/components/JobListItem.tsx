@@ -1,7 +1,7 @@
 import companyLogoPlaceholder from "@/assets/company-logo-placeholder.png";
 import { formatMoney, relativeDate } from "@/lib/utils";
 import { Job } from "@prisma/client";
-import { Banknote, Briefcase, Clock, Globe2, MapPin } from "lucide-react";
+import { Banknote, Briefcase, Clock, Globe2, MapPin, PhoneCallIcon, Mail} from "lucide-react";
 import Image from "next/image";
 import Badge from "./Badge";
 
@@ -19,7 +19,8 @@ export default function JobListItem({
     salary,
     companyLogoUrl,
     createdAt,
-  },
+    applicationUrl,
+    applicationEmail  },
 }: JobListItemProps) {
   return (
     <article className="flex gap-3 rounded-lg border p-5 hover:bg-muted/60">
@@ -40,17 +41,17 @@ export default function JobListItem({
             <Briefcase size={16} className="shrink-0" />
             {type}
           </p>
-          <p className="flex items-center gap-1.5">
-            <MapPin size={16} className="shrink-0" />
-            {locationType}
-          </p>
+          {applicationEmail && <p className="flex items-center gap-1.5">
+            <Mail size={16} className="shrink-0" />
+            {applicationEmail}
+          </p>}
+          {applicationUrl && <p className="flex items-center gap-1.5">
+            <PhoneCallIcon size={16} className="shrink-0" />
+            {applicationUrl}
+          </p>}
           <p className="flex items-center gap-1.5">
             <Globe2 size={16} className="shrink-0" />
             {location || "Worldwide"}
-          </p>
-          <p className="flex items-center gap-1.5">
-            <Banknote size={16} className="shrink-0" />
-            {formatMoney(salary)}
           </p>
           <p className="flex items-center gap-1.5 sm:hidden">
             <Clock size={16} className="shrink-0" />
@@ -61,8 +62,8 @@ export default function JobListItem({
       <div className="hidden shrink-0 flex-col items-end justify-between sm:flex">
         <Badge>{type}</Badge>
         <span className="flex items-center gap-1.5 text-muted-foreground">
-          <Clock size={16} />
-          {relativeDate(createdAt)}
+        <Banknote size={16} className="shrink-0" />
+        {formatMoney(salary)}/hour
         </span>
       </div>
     </article>

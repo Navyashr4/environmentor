@@ -20,7 +20,7 @@ function getTitle({ q, type, location, remote }: JobFilterValues) {
     : type
       ? `${type} experts`
       : remote
-        ? "On-site Consultants"
+        ? "Remote Consultants"
         : "All Environmental Experts";
 
   const titleSuffix = location ? ` in ${location}` : "";

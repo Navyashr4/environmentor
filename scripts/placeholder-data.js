@@ -2,7 +2,7 @@ const placeholderJobs = [
   {
     title: "Vandana Shiva",
     type: "Advanced",
-    companyName: "Sattva",
+    companyName: "Urban Planner",
     locationType: "Remote",
     location: "Mumbai, India",
     applicationEmail: "apply@stripe.com",
